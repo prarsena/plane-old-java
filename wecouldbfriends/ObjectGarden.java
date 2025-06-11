@@ -190,7 +190,7 @@ public class ObjectGarden{
 }
 
 
-public class User{
+class User{
 	private int id;
 	private String username;
 	private String realname;
