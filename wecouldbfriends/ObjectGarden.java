@@ -45,6 +45,7 @@ public class ObjectGarden{
 				System.out.printf("%-30s %n", "   R - Read your friendslist from file.");
 				System.out.printf("%-30s %n", "   A - Add friends.");
 				System.out.printf("%-30s %n", "   D - Delete friends.");
+				System.out.printf("%-30s %n", "   V - View users.");
 				System.out.printf("%-30s %n%n", "   Q - Quit.");
 
 				mainMenuChoice = kbd.nextLine().toLowerCase().charAt(0);
@@ -94,6 +95,9 @@ public class ObjectGarden{
 				}
 				else if (mainMenuChoice == 'd'){
 					currentUser.deleteFriendFromFile();
+				}
+				else if (mainMenuChoice == 'v'){
+					User.getAllUsers(allUsers);
 				}
 				else if (mainMenuChoice == 'q'){
 					System.exit(69);
@@ -364,7 +368,8 @@ class User{
 					quote = user.split(",")[5].trim();
 				}
 
-				String friendEntry = String.format("%s (%s, %d) from %s %n\t%s %n", realname, username, userId, school, quote);
+				String friendEntry = String.format("%s (%s, %d) from %s %n\t%s %n",
+					realname, username, userId, school, quote);
 				// the order needs  to be non-ascending. aka
 				// match by user ID to friend ids.
 				for (int i : friendIds){
@@ -395,6 +400,14 @@ class User{
 			System.out.printf("%-20s", users.get(i).getUsername());
 			if ((i+1)%2==0) System.out.println("");
 		}
+	}
+
+	public static void getAllUsers(ArrayList<User> users){
+		for (int i=0; i < users.size(); i++){
+			System.out.printf("%-10s %-20s %-30s %n",
+			users.get(i).getUsername(), users.get(i).getRealname(), users.get(i).getQuote() );
+		}
+
 	}
 
 	/*
@@ -438,7 +451,6 @@ class User{
 	/* Add method to send message to a friend*/
 	public void messageFriend(User u){
 		ArrayList<Integer> friendIds = this.readFriendIdsFromFile();
-		
 		boolean existingFriend = false;
 		for (int id : friendIds){
 			if (u.getId() == id){

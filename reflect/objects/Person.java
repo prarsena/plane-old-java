@@ -29,6 +29,10 @@ public class Person{
 		this.card = card;
 	}
 
+	private static String hackMe(){
+		return "IT'S A ROBBERY. CALL THE POLICE FOR ME";
+	}
+
 	public String getName(){
 		return name;
 	}

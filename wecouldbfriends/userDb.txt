@@ -40,3 +40,4 @@
 6782, amuo, Aisha Moussa, , Cairo Preparatory School, "I'm not a hoarder, I'm a collector of memories."
 3457, jgarc, Juan Garcia, , Madrid High School, "I'm not always sarcastic, sometimes I'm asleep."
 8124, mross, Maria Rossi, , Rome International School, "I'm not a morning person. Or a night person. I'm really not a person."
+9665, mne, Molly Neustadt, ,Heidegger High, "Buy the ticket, take the ride"
