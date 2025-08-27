@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component 
+metadata:
+  name: visits-tracking-service  
+  namespace: tracking-services
+  title: Visitor Tracking Service
+  description: |
+    tracks user that visit the application
+  labels:
+    goVersion: go1.15.3
+    category: music  
+  annotations:
+    github.com/project-slug: progress-i360/backstage  
+    github.com/team-slug: progress-i360/maintainers  
+    backstage.io/techdocs-ref: dir:.                  
+    backstage.io/adr-location: adrs  
+  tags:
+    - java
+    - data
+  links:
+    - url: https://example.com/user
+      title: Examples Users
+      icon: user    
+    - url: https://example.com/group
+      title: Example Group
+      icon: group
+spec:
+  type: website
+  lifecycle: production
+  owner: artist-relations-team
+  system: artist-engagement-portal
+  subcomponentOf: spotify-ios-app
+  providesApis:
+    - artist-api
+  consumesApis:
+    - search-api
+  dependsOn:
+    - resource:default/artists-db
+  dependencyOf:
+    - component:default/artist-web-lookup
